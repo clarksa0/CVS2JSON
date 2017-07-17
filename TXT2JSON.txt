@@ -1,4 +1,11 @@
-﻿
+<# Adds string to first line of file #>	   
+Function Insert-Content {
+Param ( [String]$Path )
+Process {
+$( ,$_; Get-Content $Path -ea SilentlyContinue) | Out-File $Path
+}
+}
+
 <# Get all text files #>
 $FilesInDir = Get-ChildItem "*.txt" | select -Expand Name   
 $FileNumber = 0
@@ -24,10 +31,4 @@ $FileNumber = 0
 		        } 
               $FileNumber = 0
        } 
-<# Adds string to first line of file #>	   
-Function Insert-Content {
-Param ( [String]$Path )
-Process {
-$( ,$_; Get-Content $Path -ea SilentlyContinue) | Out-File $Path
-}
-}
+
